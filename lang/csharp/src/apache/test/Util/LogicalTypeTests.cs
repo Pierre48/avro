@@ -94,6 +94,14 @@ namespace Avro.Test
             Assert.AreEqual(date.Date, convertedDate.Date);
         }
 
+        [TestCase("{\"type\":\"record\",\"name\":\"Test\",\"namespace\":\"test\",\"fields\":[{\"name\":\"dt\",\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}]}")]
+        public void TestStructWithTimestampMillisecond(string s)
+        {
+            var schema = Schema.Parse(s);
+
+            Assert.AreEqual(s, schema.ToString());
+        }
+
         [TestCase("01/01/2019 14:20:00Z", "01/01/2019 14:20:00Z")]
         [TestCase("01/01/2019 14:20:00", "01/01/2019 14:20:00Z")]
         [TestCase("05/05/2019 14:20:00Z", "05/05/2019 14:20:00Z")]
