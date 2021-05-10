@@ -98,7 +98,6 @@ namespace Avro.Test
         public void TestStructWithTimestampMillisecond(string s)
         {
             var schema = Schema.Parse(s);
-
             Assert.AreEqual(s, schema.ToString());
         }
 
